@@ -1,5 +1,42 @@
 [aimspice]
 [description]
-16
-Untitled circuit
+630
+.include p18_model_card.inc
+.include p18_cmos_models_tt.inc
+
+
+.subckt PhotoDiode  VDD N1_R1C1 
+I1_R1C1  VDD   N1_R1C1   DC  Ipd_1            ! Photo current source
+d1 N1_R1C1 VDD dwell 1                        ! Reverse biased Diode
+.model dwell d cj0=1e-14 is=1e-12 m=0.5 bv=40 ! Diode model
+Cd1 N1_R1C1 VDD 30f                           ! Photo diode capacitor
+.ends
+
+VDD 1 1 dc 
+VSS 0 0 dc 0
+
+PD1 1 2 PhotoDiode 
+
+MN1 2 3 4 0 NMOS L=2U W=20U 
+MN2 4 5 0 0 NMOS L=2U W=20U
+MN3 0 4 6 1 PMOS L=2U W=20U
+MN4 6 7 8 1 PMOS L=2U W=20U
+
+c1 4 0 100n 
+
+
+
+.plot dc gm(MN1)
+.plot dc rds(MN1)
+.plot dc id(MN1)
+
+ 
+[dc]
+1
+VDD
+0
+1.8
+0.1
+[ana]
+1 0
 [end]
