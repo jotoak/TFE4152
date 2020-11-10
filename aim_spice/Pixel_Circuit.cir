@@ -1,9 +1,33 @@
-[aimspice]
-[description]
-630
 .include p18_model_card.inc
 .include p18_cmos_models_tt.inc
 
+.param Ipd_1 = 750p ! Photodiode current, range [50 pA, 750 pA]
+.param VDD = 1.8 ! Supply voltage
+.param EXPOSURETIME = 30m ! Exposure time, range [2 ms, 30 ms]
+
+.param TRF = {EXPOSURETIME/100} ! Risetime and falltime of EXPOSURE and ERASE signals
+.param PW = {EXPOSURETIME} ! Pulsewidth of EXPOSURE and ERASE signals
+.param PERIOD = {EXPOSURETIME*10} ! Period for testbench sources
+.param FS = 1k; ! Sampling clock frequency 
+.param CLK_PERIOD = {1/FS} ! Sampling clock period
+.param EXPOSE_DLY = {CLK_PERIOD} ! Delay for EXPOSE signal
+.param NRE_R1_DLY = {2*CLK_PERIOD + EXPOSURETIME} ! Delay for NRE_R1 signal
+.param NRE_R2_DLY = {4*CLK_PERIOD + EXPOSURETIME} ! Delay for NRE_R2 signal
+.param ERASE_DLY = {6*CLK_PERIOD + EXPOSURETIME} ! Delay for ERASE signal
+
+
+.param L1 = 0.36U
+.param W1 = 5.04U
+.param L2 = 1.08U
+.param W2 = 1.08U
+.param CC = 1.2pF
+.param CC1 = 3pF
+
+VDD 1 0 dc VDD
+VEXPOSE EXPOSE 0 dc 0 pulse(0 VDD EXPOSE_DLY TRF TRF EXPOSURETIME PERIOD)
+VERASE ERASE 0 dc 0 pulse(0 VDD ERASE_DLY TRF TRF CLK_PERIOD PERIOD)
+VNRE_R1 NRE_R1 0 dc 0 pulse(VDD 0 NRE_R1_DLY TRF TRF CLK_PERIOD PERIOD)
+! VNRE_R2 NRE_R2 dc 0  pulse(VDD 0 NRE_R2_DLY TRF TRF CLK_PERIOD PERIOD)
 
 .subckt PhotoDiode  VDD N1_R1C1 
 I1_R1C1  VDD   N1_R1C1   DC  Ipd_1            ! Photo current source
@@ -12,31 +36,20 @@ d1 N1_R1C1 VDD dwell 1                        ! Reverse biased Diode
 Cd1 N1_R1C1 VDD 30f                           ! Photo diode capacitor
 .ends
 
-VDD 1 1 dc 
-VSS 0 0 dc 0
+xphoto 1 N1 Photodiode 
 
-PD1 1 2 PhotoDiode 
-
-MN1 2 3 4 0 NMOS L=2U W=20U 
-MN2 4 5 0 0 NMOS L=2U W=20U
-MN3 0 4 6 1 PMOS L=2U W=20U
-MN4 6 7 8 1 PMOS L=2U W=20U
-
-c1 4 0 100n 
-
-
-
-.plot dc gm(MN1)
-.plot dc rds(MN1)
-.plot dc id(MN1)
-
+MN1 N1 EXPOSE N2 0 NMOS L=L1 W=W1 
+MN2 N2 ERASE 0 0 NMOS L=L2 W=W2
+MN3 0 N2 N3 1 PMOS L=L1 W=W1
+MN4 N3 NRE_R1 OUT 1 PMOS L=L1 W=W1
+MN5 OUT OUT 1 1 PMOS L=L2 W=W2
  
-[dc]
-1
-VDD
-0
-1.8
-0.1
-[ana]
-1 0
-[end]
+c2 out 0 CC1
+c1 N2 0 CC
+
+.plot  ! signals going to ADC
+.plot V(EXPOSE) V(NRE_R1) V(NRE_R2) V(ERASE) V(OUT) V(N2)
+.plot 
+
+
+
