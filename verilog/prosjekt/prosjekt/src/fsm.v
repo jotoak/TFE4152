@@ -22,17 +22,18 @@
 //{{ Section below this comment is automatically maintained
 //   and may be overwritten
 //{module {fsm}}
-module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start);
+module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start,TF);
 	input wire Init;
 	input wire Clk;
 	input wire Reset;
-	output wire NRE_R1;
-	output wire NRE_R2;
-	output wire ADC;
-	output wire Expose;
+	output logic NRE_R1;
+	output logic NRE_R2;
+	output logic ADC;
+	output logic Expose;
 	output reg Erase;
 	input wire Done;
-	output wire Start;
+	output logic Start;
+	input wire TF;
 	
 	reg[3:0]count_reg;
 	reg started;
@@ -42,7 +43,7 @@ module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start);
 	end
 	
 	typedef enum logic[2:0]{Ventende,Eksponering,Avlesning} statetype;
-	statetype, state, nextstate;
+	statetype state, nextstate;
 	
 	always@(posedge Clk) begin
 		if(Reset)state=Ventende;
@@ -56,12 +57,14 @@ module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start);
 				Start=0;
 				Erase=1;
 				started=0;
-				if(Init) nextstate=Eksponering;
-				else nextstate=Ventende;
+				if(Init) 
+					nextstate=Eksponering;
+				else 
+					nextstate=Ventende;
 			end
 			Eksponering:begin
 				if(!started)begin
-					Starte=1;
+					Start=1;
 					Expose=1;
 					Erase=0;
 					started=1;
@@ -71,9 +74,10 @@ module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start);
 					nextstate=Avlesning;
 					Expose=0;
 				end
-				else nextstate=Eksponering;
+				else 
+					nextstate=Eksponering;
 				end
-			end
+			
 			Avlesning:begin
 				case(count_reg)
 					1:NRE_R1=0;
@@ -90,10 +94,9 @@ module fsm (Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start);
 				endcase
 				count_reg=count_reg+1;
 			end
-		endcase
-	end
-					
 		
+	endcase
+end
 //}} End of automatically maintained section
 
 // -- Enter your statements here -- //

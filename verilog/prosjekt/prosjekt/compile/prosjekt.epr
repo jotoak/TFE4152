@@ -1,0 +1,8 @@
+"../src/fsm.v"	1
+"../src/ctrl_expose.v"	1
+"../src/Time_counter.v"	1
+"../src/test_time.v"	1
+"../src/fsm_total.v"	1
+"../src/testbench.v"	1
+"../src/test_counter.v"	1
+"../src/teset_fsm.v"	1

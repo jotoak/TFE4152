@@ -1,0 +1,40 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=prosjekt
+[Library]
+prosjekt=.\prosjekt\prosjekt.lib
+[$LibMap$]
+prosjekt=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=ONLY_IMPL
+ON_SERVERFARM_SYNTH=0
+ON_SERVERFARM_IMPL=0
+ON_SERVERFARM_SIM=0
+[IMPLEMENTATION]
+UCF=
+[Files]
+/fsm.v=-1
+/ctrl_expose.v=-1
+/Time_counter.v=-1
+/fsm_total.v=-1
+/testbench.v=-1
+/test_time.v=-1
+/test_counter.v=-1
+/teset_fsm.v=-1
+[Files.Data]
+.\src\fsm.v=Verilog Source Code
+.\src\ctrl_expose.v=Verilog Source Code
+.\src\Time_counter.v=Verilog Source Code
+.\src\fsm_total.v=Verilog Source Code
+.\src\testbench.v=Verilog Source Code
+.\src\test_time.v=Verilog Source Code
+.\src\test_counter.v=Verilog Source Code
+.\src\teset_fsm.v=Verilog Source Code

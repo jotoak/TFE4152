@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------------
 //
-// Title       : ctrl_expose
+// Title       : teset_fsm
 // Design      : prosjekt
 // Author      : jonas.tornes@gmail.com
 // Company     : NTNU
 //
 //-----------------------------------------------------------------------------
 //
-// File        : c:\My_Designs\prosjekt\prosjekt\src\ctrl_expose.v
-// Generated   : Tue Nov 10 10:46:26 2020
+// File        : C:\Users\jonas\OneDrive - NTNU\TFE4152\Prosjekt\prosjekt\prosjekt\src\teset_fsm.v
+// Generated   : Fri Nov 13 13:35:10 2020
 // From        : interface description file
 // By          : Itf2Vhdl ver. 1.22
 //
@@ -21,24 +21,34 @@
 
 //{{ Section below this comment is automatically maintained
 //   and may be overwritten
-//{module {ctrl_expose}}
-module ctrl_expose (Exp_decrease,Exp_increase,Clk,Reset);
-
-	output reg[4:0] EX_time;
-	input wire Exp_decrease;
-	input wire Exp_increase;
-	input wire Clk;
-	input wire Reset;
+//{module {teset_fsm}}
+module teset_fsm ();
+	logic Init;
+	logic Clk;
+	logic Reset;
+	logic Done;
+	logic TF;
 	
-	always_ff@(posedge Clk)begin
-		if(Reset)EX_time=2;
-		else if(Exp_decrease) begin
-			if(EX_time>2) EX_time<=EX_time-1;
-		end
-		else if(Exp_increase) begin
-			if(EX_time<30)EX_time<=EX_time+1;
-		end
+	
+	fsm k(Init,Clk,Reset,NRE_R1,NRE_R2,ADC,Expose,Erase,Done,Start,TF);
+	
+	initial begin
+		Clk=0; #1;
+		Init=0; #1;
+		Reset=1; #1;
+		Reset=0; #1;
+		Init=1; #10;
+		
+		Init=0; #40;
+		Reset=1; #15;
+		Reset=0; #1;
+		TF=1; 
 	end
+	always
+		#0.5 Clk=!Clk;
+	initial 
+		#100 $finish;
+		
 	
 
 //}} End of automatically maintained section

@@ -1,0 +1,99 @@
+timestamp=1605278061821
+
+[~A]
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/Time_counter.v=0*27143*27891
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/ctrl_expose.v=0*73555*74174
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/ctrl_expose.v_Time_counter.v_fsm_total.v=0*31127*32286
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/ctrl_expose.v_test_counter.v=0*63171*63981
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm.v=0*3930*4925
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm.v_ctrl_expose.v_Time_counter.v_fsm_total.v=0*12189*13770
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm.v_ctrl_expose.v_Time_counter.v_fsm_total.v_testbench.v=0*20945*22762
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm.v_ctrl_expose.v_Time_counter.v_fsm_total.v_testbench.v_test_time.v_test_counter.v=0*94186*96254
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm.v_ctrl_expose.v_Time_counter.v_fsm_total.v_testbench.v_test_time.v_test_counter.v_teset_fsm.v=0*129105*131313
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm_total.v=0*5995*6660
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm_total.v_testbench.v=0*33645*34562
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v=0*122384*123017
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/test_counter.v=0*114252*114904
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/test_time.v=0*49801*50418
+C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/testbench.v=0*125692*126389
+LastVerilogToplevel=teset_fsm
+ModifyID=61
+Version=74
+
+[~MFT]
+0=13|0prosjekt.mgf|131313|64930
+1=18|1prosjekt.mgf|209960|198233
+3=36|3prosjekt.mgf|154416|144617
+
+[$root]
+A/$root=22|||1*198233
+BinI32/$root=3*144617
+SLP=3*144721
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|c73a565f2ade592f8ac1c68f484c921648bc50852f1e2f7cecc1891361ad6f30
+
+[Time_counter]
+A/Time_counter=22|../src/Time_counter.v|25|1*201874
+BinI32/Time_counter=3*148010
+R=../src/Time_counter.v|25
+SLP=3*148820
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|bffd092a79649b52401d42aa0f9b8cadc3ac00cb0d0f0d6da70a829dd046ab494b7bf753868197c41739f3ea35ff5910
+
+[ctrl_expose]
+A/ctrl_expose=22|../src/ctrl_expose.v|25|1*200685
+BinI32/ctrl_expose=3*147032
+R=../src/ctrl_expose.v|25
+SLP=3*147609
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|3e5bb8298cff66263e51dfe255d93f607a986dafd5ad01aaf308701acdc3d498d701d1ae2219746541e135439d9f665d
+
+[fsm]
+A/fsm=22|../src/fsm.v|25|1*198639
+BinI32/fsm=3*144789
+R=../src/fsm.v|25
+SLP=3*145960
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|d274df6d00ba93fbeb16b3acd8e09e756debb91dccdd212c0a39a7a39d1a4073
+
+[fsm_total]
+A/fsm_total=22|../src/fsm_total.v|25|1*203439
+BinI32/fsm_total=3*149371
+R=../src/fsm_total.v|25
+SLP=3*149479
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|205500c9b9a8e61c50dcec2d033f1b88f4fcd5116b3755abd4dccce293d4edcdcd8f16cf2802f901cfaea8be71a4ea4a
+
+[teset_fsm]
+A/teset_fsm=22|../src/teset_fsm.v|25|1*209960
+BinI32/teset_fsm=3*153618
+R=../src/teset_fsm.v|25
+SLP=3*154416
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|e7d538cf59f109f68b5b35cacc00e5eae2c2a0e3cfa45d8b8aca422b22670e715fb2adb7e2e03f16adde58735e56dd8d
+
+[test_counter]
+A/test_counter=22|../src/test_counter.v|25|1*208610
+BinI32/test_counter=3*152317
+R=../src/test_counter.v|25
+SLP=3*153115
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|295f6c7c7131d8675176c53f1d70f34a30ff4a7a1fcbdbcd7bc65a3f705637f654a6687fbcb17993b7ee401f7310aafa
+
+[test_time]
+A/test_time=22|../src/test_time.v|25|1*207225
+BinI32/test_time=3*151032
+R=../src/test_time.v|25
+SLP=3*151824
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|49287561899e69283c485b5cb17d9f7dee3177275db17dd2c2b63493573c087e0e7fb80ee2f1203642b8f5e214d54de6
+
+[testbench]
+A/testbench=22|../src/testbench.v|25|1*205559
+BinI32/testbench=3*149615
+R=../src/testbench.v|25
+SLP=3*150473
+Version=11.1.262.7351 (Windows)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|9c08cd30fe0f9550ac0d051aa32c9ba5030c5f4de3ffa3c97f58c5528f1d7913cd8f16cf2802f901cfaea8be71a4ea4a
+
+[~U]
+$root=12|0*126967|
+Time_counter=12|0*127787|
+ctrl_expose=12|0*127541|
+fsm=12|0*127213|
+fsm_total=12|0*128069|
+teset_fsm=12|0*128940||0x10
+test_counter=12|0*128752||0x10
+test_time=12|0*128575||0x10
+testbench=12|0*128368||0x10

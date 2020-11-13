@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------------
 //
-// Title       : Time_counter
+// Title       : ctrl_expose
 // Design      : prosjekt
 // Author      : jonas.tornes@gmail.com
 // Company     : NTNU
 //
 //-----------------------------------------------------------------------------
 //
-// File        : c:\My_Designs\prosjekt\prosjekt\src\Time_counter.v
-// Generated   : Tue Nov 10 10:53:45 2020
+// File        : c:\My_Designs\prosjekt\prosjekt\src\ctrl_expose.v
+// Generated   : Tue Nov 10 10:46:26 2020
 // From        : interface description file
 // By          : Itf2Vhdl ver. 1.22
 //
@@ -21,39 +21,27 @@
 
 //{{ Section below this comment is automatically maintained
 //   and may be overwritten
-//{module {Time_counter}}
-module Time_counter (Start,Initial,Reset,Clk,TF);
-	input wire Start;
-	input reg [4:0] Initial;
-	input wire Reset;
+//{module {ctrl_expose}}
+module ctrl_expose (Exp_decrease,Exp_increase,Clk,Reset,EX_time);
+
+	output reg [4:0] EX_time;
+	input wire Exp_decrease;
+	input wire Exp_increase;
 	input wire Clk;
-	output logic TF;
-	reg[4:0] count_reg;
-	initial count_reg=0;
+	input wire Reset;
 	
-	typedef enum logic[1:0]{Base,Count} statetype;
-	statetype, state, nextstate;
-	
-	always@(posedge Clk) begin
-		if(Reset) state=Base;
-		else state=nextstate;
-		case(state)
-			Base:begin
-				TF=0;
-				if(Start)nextstate=Count;
-				else nextstate=Base;
-			end
-		Count:begin
-			if(count_reg=Initial-1)begin
-				TF=1;
-				nextstate=Base;
-			end
-		else count_reg=count_reg-1;
+	always_ff @(posedge Clk)begin
+		if(Reset)
+			EX_time<=2;
+		else if(Exp_decrease) begin
+			if(EX_time>2) 
+				EX_time<=(EX_time-1);
 		end
-		endcase
+		else if(Exp_increase) begin
+			if(EX_time<30) 
+				EX_time<=(EX_time+1);
+		end
 	end
-	
-		
 	
 
 //}} End of automatically maintained section

@@ -1,0 +1,27 @@
+Active-HDL 11.1.262.7351 2020-11-13 15:34:30
+
+Elaboration top modules:
+Verilog Module                testbench
+
+
+------------------------------------------------------------------------------------------
+Verilog Module          | Library  | Info | Compiler Version        | Compilation Options
+------------------------------------------------------------------------------------------
+testbench               | prosjekt |      | 11.1.262.7351 (Windows) | -O2 -sv2k12
+fsm_total               | prosjekt |      | 11.1.262.7351 (Windows) | -O2 -sv2k12
+Time_counter            | prosjekt |      | 11.1.262.7351 (Windows) | -O2 -sv2k12
+ctrl_expose             | prosjekt |      | 11.1.262.7351 (Windows) | -O2 -sv2k12
+fsm                     | prosjekt |      | 11.1.262.7351 (Windows) | -O2 -sv2k12
+------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------
+Library                 | Comment
+------------------------------------------------------------------------------------------
+prosjekt                | None
+------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+testbench testbench
+
+
+The performance of simulation is reduced. Version Student Edition

@@ -1,0 +1,43 @@
+MESSAGE "Pass 1. Scanning modules hierarchy."
+MESSAGE_SP VCP2113 "Module \$root found in current working library."
+BEGINPROGRESS Compiling...
+UPDATEPROGRESS 4
+UPDATEPROGRESS 8
+UPDATEPROGRESS 13
+UPDATEPROGRESS 17
+UPDATEPROGRESS 21
+UPDATEPROGRESS 26
+UPDATEPROGRESS 30
+UPDATEPROGRESS 35
+MESSAGE "Pass 2. Processing instantiations."
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol Done has not been declared in module fsm_total." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/fsm_total.v" 42  62
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol TF has not been declared in module test_time." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/test_time.v" 33  48
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol NRE_R1 has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  32
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol NRE_R2 has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  39
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol ADC has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  43
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol Expose has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  50
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol Erase has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  56
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol Start has not been declared in module teset_fsm." "C:/Users/jonas/OneDrive - NTNU/TFE4152/Prosjekt/prosjekt/prosjekt/src/teset_fsm.v" 33  67
+UPDATEPROGRESS 45
+MESSAGE "Pass 3. Processing behavioral statements."
+UPDATEPROGRESS 80
+MESSAGE "Running Optimizer."
+MESSAGE "ELB/DAG code generating."
+MESSAGE_SP VCP2113 "Module \$root found in current working library."
+UPDATEPROGRESS 81
+UPDATEPROGRESS 83
+UPDATEPROGRESS 85
+UPDATEPROGRESS 86
+UPDATEPROGRESS 88
+UPDATEPROGRESS 90
+UPDATEPROGRESS 91
+UPDATEPROGRESS 93
+UPDATEPROGRESS 95
+UPDATEPROGRESS 96
+MESSAGE "Unit top modules: testbench test_time test_counter teset_fsm."
+MESSAGE "$root top modules: testbench test_time test_counter teset_fsm."
+UPDATEPROGRESS 100
+ENDPROGRESS Compiling...
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 0[s]."
+WARNING ALOG: "The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available."
+MESSAGE "done"
